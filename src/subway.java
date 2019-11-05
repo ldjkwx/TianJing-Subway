@@ -16,7 +16,40 @@ public class Map{
     // -----------------------------------------------------------------------------------
     // 最优路径规划
     int getLineNumber(int nStationId) {
-        return nStationId / 1000;
+        return nStationId / 1000;}
+
+
+
+
+
+    // 加载地铁线路数据
+    public void loadLineFile(String strSubwayFileName) {
+        //File fSubway = new File(strSubwayFileName);
+        File fSubway = new File(strSubwayFileName);
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(fSubway));
+            String tempString = null;
+
+            while ((tempString = reader.readLine()) != null) {
+                if (tempString.startsWith("\uFEFF")) {
+                    tempString = tempString.substring(1, tempString.length());
+                }
+                listSubwayInfo.addElement(tempString);
+            }
+            System.out.println("成功加载地铁线路文件！\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        parseSubwayStationsData();
     }
 
     int getLineNumber(String strLine) {
