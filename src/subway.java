@@ -25,6 +25,7 @@ class Map {
 
     // 加载地铁线路数据
     public void loadLineFile(String strSubwayFileName) {
+        //File fSubway = new File(strSubwayFileName);
         File fSubway = new File(strSubwayFileName);
         BufferedReader reader = null;
         try {
