@@ -40,6 +40,7 @@ public class Map{
 
     int getStationsDistance(Station S1, Station S2) {
         int nMinDistance = nMaxDistance;
+        // Set<Integer> S1Ids = S1.setStationId;
         Set<Integer> S1Ids = S1.setStationId;
         Set<Integer> S2Ids = S2.setStationId;
         for (int id1: S1Ids) {
